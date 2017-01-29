@@ -1,0 +1,10 @@
+Instructions:
+
+To run this code, just run the provided "buildScript.bat" (make sure all the provided files are present in the same folder first.. ideally a newly created folder). The build script will create the conventional maven folder structure, place the java file within that structure, perform a maven build which will create a "fat" jar with dependencies under the "target" subfolder and then it will run this jar using the provided *.pcap file as a command line parameter. This code has been tested on Windows 10.
+
+Prerequisites:
+- Maven
+- JDK 8
+- Winpcap
+
+No other prerequisites required, however you will need to be able to access the Maven central repository in order to fetch the dependencies enumerated in the pom.xml file so make sure you have internet access.
