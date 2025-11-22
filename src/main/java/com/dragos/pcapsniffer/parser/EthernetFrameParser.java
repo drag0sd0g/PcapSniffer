@@ -11,16 +11,16 @@ import org.slf4j.LoggerFactory;
 public class EthernetFrameParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(EthernetFrameParser.class);
 
-    private static final int ETHERNET_HEADER_TYPE_OFFSET = 0;
+    private static final int ETHERNET_DESTINATION_ADDRESS_OFFSET = 0;
     private static final int ETHERNET_SOURCE_ADDRESS_OFFSET = 6;
-    private static final int ETHERNET_DESTINATION_ADDRESS_OFFSET = 12;
+    private static final int ETHERNET_TYPE_OFFSET = 12;
 
     public void parse(EthernetPacket ethernetPacket) {
         LOGGER.info("\t-----ETHERNET LEVEL-----");
         LOGGER.info("packet length " + ethernetPacket.length());
         byte[] ethernetFrameRawData = ethernetPacket.getRawData();
-        LOGGER.info("\t\tEthernet header type: " + ByteArrays.getMacAddress(ethernetFrameRawData, ETHERNET_HEADER_TYPE_OFFSET));
-        LOGGER.info("\t\tEthernet header Source Address: " + ByteArrays.getMacAddress(ethernetFrameRawData, ETHERNET_SOURCE_ADDRESS_OFFSET));
-        LOGGER.info("\t\tEthernet header Destination Address: " + ByteArrays.getShort(ethernetFrameRawData, ETHERNET_DESTINATION_ADDRESS_OFFSET));
+        LOGGER.info("\t\tEthernet Destination Address: " + ByteArrays.getMacAddress(ethernetFrameRawData, ETHERNET_DESTINATION_ADDRESS_OFFSET));
+        LOGGER.info("\t\tEthernet Source Address: " + ByteArrays.getMacAddress(ethernetFrameRawData, ETHERNET_SOURCE_ADDRESS_OFFSET));
+        LOGGER.info("\t\tEthernet Type: " + ByteArrays.getShort(ethernetFrameRawData, ETHERNET_TYPE_OFFSET));
     }
 }
