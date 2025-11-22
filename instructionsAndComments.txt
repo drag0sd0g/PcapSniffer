@@ -1,10 +1,20 @@
-Instructions:
+Instructions (Updated for Version 2.0.0):
 
-To run this code, just run the provided "buildScript.bat" (make sure all the provided files are present in the same folder first.. ideally a newly created folder). The build script will create the conventional maven folder structure, place the java file within that structure, perform a maven build which will create a "fat" jar with dependencies under the "target" subfolder and then it will run this jar using the provided *.pcap file as a command line parameter. This code has been tested on Windows 10.
+This project has been fully modernized. The old build script is no longer needed.
 
 Prerequisites:
-- Maven
-- JDK 8
-- Winpcap
+- Java 21 or higher
+- Maven 3.9 or higher
 
-No other prerequisites required, however you will need to be able to access the Maven central repository in order to fetch the dependencies enumerated in the pom.xml file so make sure you have internet access.
+To build and run:
+
+1. Build the project:
+   mvn clean package
+
+2. Run the application:
+   java -jar target/pcapsniffer-2.0.0-jar-with-dependencies.jar 64x8burst.eth2.pcap
+
+For detailed instructions, see README.md (English) or README.ja.md (Japanese).
+
+Legacy Instructions (Version 1.0 - Deprecated):
+The old buildScript.bat is no longer maintained. Use Maven directly as shown above.
